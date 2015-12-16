@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get 'profiles/:id' => "profiles#show", as: :profile
   get "profiles" => "profiles#index"
 
-resources :tweets
-
+resources :tweets do 
+  resource :like
+end
+resources :relationships 
 root "tweets#index"
 
 devise_for :users
