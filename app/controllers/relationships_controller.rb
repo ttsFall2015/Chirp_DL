@@ -1,8 +1,7 @@
 class RelationshipsController < ApplicationController
 
 	def create 
-		@Relationship = current_user.relationship.build
-		(friend_id: params[:friend_id])
+		@Relationship = current_user.relationship.build(friend_id: params[:friend_id])
 
 		if @relationship.save 
 			flash[:notice] = "Followed Succesfully"
